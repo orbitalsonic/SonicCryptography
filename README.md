@@ -3,7 +3,7 @@ Cryptography, or cryptology, is the practice and study of techniques for secure 
 
 # Add Gradle Files
 
-###### Add following lines in project gradle file
+###### Add following lines in project gradle file or settings.gralde file
 
 ```
 repositories {
