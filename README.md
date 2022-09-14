@@ -23,8 +23,8 @@ repositories {
  ```
  
   # Example
-           SonicCryptography.encryptMessage(message,key)
-           SonicCryptography.decryptMessage(message,key)
+           val myEncryptedMessage = SonicCryptography.encryptMessage(message,key)
+           val myDecryptedMessage = SonicCryptography.decryptMessage(message,key)
 
 # Note
 Key must be 16 characters
