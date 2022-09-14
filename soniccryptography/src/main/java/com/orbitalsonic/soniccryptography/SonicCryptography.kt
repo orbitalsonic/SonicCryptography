@@ -21,8 +21,8 @@ class SonicCryptography {
                 val encrypted: ByteArray = cipher.doFinal(message.toByteArray())
                 Base64.encodeToString(encrypted, Base64.DEFAULT)
             } catch (ex: Exception) {
-                Log.e(TAG, "${ex.message}")
-                ex.message.toString()
+                Log.e(TAG, "Error: ${ex.message}")
+                "Error: ${ex.message}"
             }
             return encryptedMessage
         }
@@ -36,8 +36,8 @@ class SonicCryptography {
                 val original: ByteArray = cipher.doFinal(Base64.decode(message, Base64.DEFAULT))
                 String(original)
             } catch (ex: Exception) {
-                Log.e(TAG, "${ex.message}")
-                ex.message.toString()
+                Log.e(TAG, "Error: ${ex.message}")
+                "Error: ${ex.message}"
             }
             return decryptedMessage
         }
