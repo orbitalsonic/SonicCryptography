@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sonic Cryptography</string>
+    <string name="enter_text_too_encrypt_or_decrypt">Enter Text too Encrypt or Decrypt</string>
+    <string name="enter_key">Enter Key</string>
+    <string name="key_must_be_16_characters">Key must be 16 characters</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="result">Result</string>
+</resources>
