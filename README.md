@@ -18,7 +18,7 @@ repositories {
 ###### Add following dependency in app gradle file
 
 ```
-  implementation 'com.github.orbitalsonic:SonicCryptography:1.0.1'
+  implementation 'com.github.orbitalsonic:SonicCryptography:1.0.2'
  
  ```
  
