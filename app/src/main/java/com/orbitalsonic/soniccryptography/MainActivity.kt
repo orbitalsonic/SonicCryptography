@@ -2,37 +2,52 @@ package com.orbitalsonic.soniccryptography
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.orbitalsonic.soniccryptography.databinding.ActivityMainBinding
 
+/**
+ * @Author: Muhammad Yaqoob
+ * @Date: 29,March,2024.
+ * @Accounts
+ *      -> https://github.com/orbitalsonic
+ *      -> https://www.linkedin.com/in/myaqoob7
+ */
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private lateinit var etMessageText:EditText
+    private lateinit var etKeyText:EditText
+    private lateinit var tvResult:TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
+
+        etMessageText = findViewById(R.id.etMessageText)
+        etKeyText = findViewById(R.id.etKeyText)
+        tvResult = findViewById(R.id.tv_result)
 
         onClickMethods()
     }
 
     private fun onClickMethods(){
 
-        binding.btnDecrypt.setOnClickListener {
+        findViewById<TextView>(R.id.btn_decrypt).setOnClickListener {
             if (validateText()) {
                 val encData = SonicCryptography.decryptMessage(
-                    binding.etMessageText.text.toString(),
-                    binding.etKeyText.text.toString()
+                    etMessageText.text.toString(),
+                    etKeyText.text.toString()
                 )
-                binding.tvResult.text = encData
+                tvResult.text = encData
             }
         }
-        binding.btnEncrypt.setOnClickListener {
+        findViewById<TextView>(R.id.btn_encrypt).setOnClickListener {
             if (validateText()) {
                 val encData = SonicCryptography.encryptMessage(
-                    binding.etMessageText.text.toString(),
-                    binding.etKeyText.text.toString()
+                    etMessageText.text.toString(),
+                    etKeyText.text.toString()
                 )
-                binding.tvResult.text = encData
+                tvResult.text = encData
                 Log.d("myInformation",encData)
             } else {
                 showToast("Fields Empty!")
@@ -44,9 +59,9 @@ class MainActivity : AppCompatActivity() {
     private fun validateText(): Boolean {
         val isKeyCorrect: Boolean
         val textMessage: String =
-            binding.etMessageText.text.toString()
+            etMessageText.text.toString()
         val textKey: String =
-            binding.etKeyText.text.toString()
+            etKeyText.text.toString()
 
         if (textMessage.isEmpty() || textKey.isEmpty()) {
             showToast("Field can't be empty")
